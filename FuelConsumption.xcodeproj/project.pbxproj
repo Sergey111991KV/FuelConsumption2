@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C6E451A23620502008A622D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E451923620502008A622D /* MainTabBarController.swift */; };
+		1C6E451C23620ADD008A622D /* ListObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E451B23620ADD008A622D /* ListObject.swift */; };
 		1CC88C5E2360B5320075BF1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC88C5D2360B5320075BF1F /* AppDelegate.swift */; };
 		1CC88C602360B5320075BF1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC88C5F2360B5320075BF1F /* SceneDelegate.swift */; };
 		1CC88C632360B5320075BF1F /* FuelConsumption.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CC88C612360B5320075BF1F /* FuelConsumption.xcdatamodeld */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C6E451923620502008A622D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		1C6E451B23620ADD008A622D /* ListObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListObject.swift; sourceTree = "<group>"; };
 		1CC88C5A2360B5320075BF1F /* FuelConsumption.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuelConsumption.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC88C5D2360B5320075BF1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC88C5F2360B5320075BF1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,8 +63,10 @@
 			isa = PBXGroup;
 			children = (
 				1CC88C5D2360B5320075BF1F /* AppDelegate.swift */,
+				1C6E451923620502008A622D /* MainTabBarController.swift */,
 				1CC88C5F2360B5320075BF1F /* SceneDelegate.swift */,
 				1CC88C642360B5320075BF1F /* ContentView.swift */,
+				1C6E451B23620ADD008A622D /* ListObject.swift */,
 				1CC88C662360B5330075BF1F /* Assets.xcassets */,
 				1CC88C6B2360B5330075BF1F /* LaunchScreen.storyboard */,
 				1CC88C6E2360B5330075BF1F /* Info.plist */,
@@ -151,6 +157,8 @@
 			files = (
 				1CC88C5E2360B5320075BF1F /* AppDelegate.swift in Sources */,
 				1CC88C632360B5320075BF1F /* FuelConsumption.xcdatamodeld in Sources */,
+				1C6E451C23620ADD008A622D /* ListObject.swift in Sources */,
+				1C6E451A23620502008A622D /* MainTabBarController.swift in Sources */,
 				1CC88C652360B5320075BF1F /* ContentView.swift in Sources */,
 				1CC88C602360B5320075BF1F /* SceneDelegate.swift in Sources */,
 			);

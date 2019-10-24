@@ -20,17 +20,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-      //  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+       let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let contentView = ContentView()/*.environment(\.managedObjectContext, context)*/
-
+        let listView = ListObject().environment(\.managedObjectContext, context)
+        let contentView = ContentView().environment(\.managedObjectContext, context)
+        let tabBar = MainTabBarController()
+        tabBar.viewControllers = [
+                     generateNavigationController(rootViewController: UIHostingController(rootView: contentView), title: "", image: UIImage(systemName: "pencil")!),
+                    generateNavigationController(rootViewController: UIHostingController(rootView: listView), title: "", image: UIImage(systemName: "doc.plaintext")!)
+                ]
         // Use a UIHostingController as window root view controller.
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
-            self.window = window
-            window.makeKeyAndVisible()
-        }
+//        if let windowScene = scene as? UIWindowScene {
+//            let window = UIWindow(windowScene: windowScene)
+//            window.rootViewController = UIHostingController(rootView: contentView)
+//            self.window = window
+//            window.makeKeyAndVisible()
+            
+         if let windowScene = scene as? UIWindowScene {
+                        let window = UIWindow(windowScene: windowScene)
+                        window.rootViewController =
+                           // UIHostingController(rootView: listView)
+                            tabBar
+                        self.window = window
+                        window.makeKeyAndVisible()
+                    }
+             
+            
+        
+    }
+    
+   private func generateNavigationController(rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
+        let navigationVC = UINavigationController(rootViewController: rootViewController)
+        navigationVC.tabBarItem.title = title
+        navigationVC.tabBarItem.image = image
+        return navigationVC
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
