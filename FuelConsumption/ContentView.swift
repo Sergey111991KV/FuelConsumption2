@@ -62,6 +62,9 @@ struct ContentView: View {
         return 0
     }
     
+     private func endEditing() {
+           UIApplication.shared.endEditing()
+       }
     var body: some View {
         NavigationView{
             List{
@@ -72,23 +75,42 @@ struct ContentView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 100,height:100)
-                        
+                        .onTapGesture {
+                            self.endEditing()
+                        }
                         VStack{
                             Text("Odometer start reading")
-                            
+                            .onTapGesture {
+                                self.endEditing()
+                            }
                             HStack{
                                 Spacer()
-                                
                                 TextField("0", text: $beginingKilometres)
+                                    .background(Color.gray.opacity(0.5))
                                     .keyboardType(.decimalPad)
+                               .onTapGesture {
+                                   self.endEditing()
+                               }
                             }
+                             
+                            
                             Text("End odometer reading")
+                            .onTapGesture {
+                                self.endEditing()
+                            }
                             HStack{
                                 Spacer()
                                 TextField("0", text: $endKilometres)
+                                    .background(Color.gray.opacity(0.5))
                                     .keyboardType(.decimalPad)
+                                .onTapGesture {
+                                    self.endEditing()
+                                }
                             }
                                 Text("All kilometres \(allKilometres, specifier: "%.2f")")
+                            .onTapGesture {
+                                self.endEditing()
+                            }
                         }
                     }
                 }
@@ -99,90 +121,130 @@ struct ContentView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100,height:100)
+                            .onTapGesture {
+                                self.endEditing()
+                            }
                             VStack{
                                 Text("Begining Oil")
+                                .onTapGesture {
+                                    self.endEditing()
+                                }
                                 HStack{
                                     
                                     Spacer()
                                     TextField("0", text: $beginingOil)
+                                        .background(Color.gray.opacity(0.5))
                                         .keyboardType(.decimalPad)
+                                    .onTapGesture {
+                                        self.endEditing()
+                                    }
                                 }
                                 Text("End Oil")
+                                .onTapGesture {
+                                    self.endEditing()
+                                }
                                 HStack{
                                     
                                     Spacer()
                                     TextField("0", text: $endOil)
+                                        .background(Color.gray.opacity(0.5))
                                         .keyboardType(.decimalPad)
+                                    .onTapGesture {
+                                        self.endEditing()
+                                    }
                                 }
                                 Text("All Oil \(allOil, specifier: "%.2f")")
-                                
+                                .onTapGesture {
+                                    self.endEditing()
+                                }
                             }
                         }
                     }
 //MARK: - OPTIONS
-                    Section(header: Text("Massa&Time")){
+                Section(header: Text("Massa&Time")){
+                    VStack{
+                    HStack{
                         VStack{
-                        HStack{
-                            
                             VStack{
-                                VStack{
-                                    
-                                    
-                                    Image("time")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100,height:100)
-                                        .padding()
-                                    
-                                    
-                                    Text("Travel Time (Hour)")
-                                    
-                                    
+                                Image("time")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100,height:100)
+                                    .padding()
+                                .onTapGesture {
+                                    self.endEditing()
                                 }
-                                HStack{
-                                    Spacer()
-                                    TextField("0", text: $timeOfDistanse)
-                                        .keyboardType(.decimalPad)
+                                Text("Travel Time (Hour)")
+                                .onTapGesture {
+                                    self.endEditing()
                                 }
                             }
-                            VStack(alignment: .leading){
-                        VStack{
-                            Image("box")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100,height:100)
-                                .padding()
-                            Text("Cargo Weight (Kilogram)")
-                        }
-                        
-                        HStack{
-                            Spacer()
-                            TextField("0", text: $massa)
+                            HStack{
+                                Spacer()
+                                TextField("0", text: $timeOfDistanse)
+                                    .background(Color.gray.opacity(0.5))
+                                    .keyboardType(.decimalPad)
+                                .onTapGesture {
+                                    self.endEditing()
+                                }
+                                Spacer()
+                            }}
+                        VStack(alignment: .leading){
+                            VStack{
+                                Image("box")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100,height:100)
+                                    .padding()
+                                    .onTapGesture {
+                                        self.endEditing()
+                                }
+                                Text("Cargo Weight (Kg)")
+                                .onTapGesture {
+                                    self.endEditing()
+                                }
+                            }
+                            HStack{
                                 
-                                .keyboardType(.decimalPad)
+                                TextField("0", text: $massa)
+                                    .background(Color.gray.opacity(0.5))
+                                    .keyboardType(.decimalPad)
+                                .onTapGesture {
+                                    self.endEditing()
+                                }
+                            }
                         }
+                        }
+                
+                HStack{
+                    Text("Name of Travel")
+                    .onTapGesture {
+                        self.endEditing()
                     }
-                   
-                    
+                    Spacer()
+                    TextField("Write", text: $nameOfTravel).background(Color.gray.opacity(0.5))
+                        .onTapGesture {
+                            self.endEditing()
+                    }
                 }
-                       }
-                        HStack{
-                        Text("Name of Travel")
-                            Spacer()
-                            TextField("Write", text: $nameOfTravel)
-                            
-                        }
+            }
                 }
                 //MARK: - RESULT & SAVE
                 Section{
                     HStack{
                         Spacer()
                         Text("Speed: \(speedOfCar, specifier: "%.2f")")
+                        .onTapGesture {
+                            self.endEditing()
+                        }
                         Spacer()
                         Text("Сonsumption: \(fuelConsumption, specifier: "%.2f")")
+                        .onTapGesture {
+                            self.endEditing()
+                        }
                         Spacer()
                     }
-                 
+                    
                     ZStack{
                     HStack{
                         Spacer()
@@ -203,7 +265,7 @@ struct ContentView: View {
                                     self.endOil = ""
                                     self.beginingKilometres = ""
                                     self.endKilometres = ""
-                                    self.massa = "0"
+                                    self.massa = ""
                                     self.timeOfDistanse = ""
                                 } catch{
                                     print(error)
@@ -224,8 +286,9 @@ struct ContentView: View {
                 }
                    
                 }
+                .navigationBarTitle("Calculate")
             }
-        .navigationBarTitle("Fuel Consumption")
+       
         }
     }
 }
@@ -241,7 +304,6 @@ struct Title: ViewModifier {
     }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
@@ -250,5 +312,10 @@ struct ContentView_Previews: PreviewProvider {
 extension View {
     func titleStyle() -> some View {
         self.modifier(Title())
+    }
+}
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
